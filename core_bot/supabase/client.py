@@ -4,9 +4,12 @@ import httpx
 import logging
 from datetime import datetime
 from supabase import create_client, Client
-from micin_core.config import SUPABASE_URL, SUPABASE_KEY
+from core_bot.config import SUPABASE_URL, SUPABASE_KEY  
 
-logger = logging.getLogger(__name__)
+from core_bot.logging.logger import get_logger
+
+logger = get_logger("core_bot.supabase.client")
+
 
 
 class SupabaseClient:
@@ -19,7 +22,6 @@ class SupabaseClient:
             raise RuntimeError(f"❌ Gagal menghubungkan ke Supabase: {e}")
 
     async def upsert(self, table: str, data: dict) -> str:
-        """Fungsi umum untuk upsert ke tabel mana pun"""
         headers = {
             "apikey": self.key,
             "Authorization": f"Bearer {self.key}",
@@ -31,7 +33,7 @@ class SupabaseClient:
             response = await client.post(
                 f"{self.base_url}/rest/v1/{table}",
                 headers=headers,
-                json=[data]  # Supabase expects a list of records
+                json=[data]
             )
 
         if response.status_code == 409:
@@ -45,7 +47,6 @@ class SupabaseClient:
         return "success"
 
     async def upsert_vip_user(self, user_id: int, username: str, full_name: str):
-        """Upsert user ke tabel 'Users' dengan skema standar bot Micin"""
         data = {
             "user_id": user_id,
             "username": username or "",
@@ -57,6 +58,5 @@ class SupabaseClient:
         return await self.upsert("Users", data)
 
     async def upsert_custom_user(self, data: dict, table="Users"):
-        """Upsert data user dengan struktur bebas ke tabel yang ditentukan"""
         return await self.upsert(table, data)
 
