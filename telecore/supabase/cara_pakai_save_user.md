@@ -1,14 +1,14 @@
 # 📘 Dokumentasi: `save_user_to_db()`
 
 Fungsi ini digunakan untuk menyimpan data user Telegram ke tabel `Users` di Supabase.
-Disiapkan sebagai bagian dari modul `core_bot`, sehingga bisa digunakan ulang oleh berbagai proyek bot.
+Disiapkan sebagai bagian dari modul `telecore`, sehingga bisa digunakan ulang oleh berbagai proyek bot.
 
 ---
 
 ## 📦 Lokasi File
 
 ```
-core_bot/
+telecore/
 └── supabase/
     └── save_user.py
 ```
@@ -58,7 +58,7 @@ Fungsi ini akan membuat log detail saat proses berlangsung, dan menghindari erro
 ### 📦 Contoh Penggunaan
 
 ```python
-from core_bot.supabase.save_user import save_user_to_db
+from telecore.supabase.save_user import save_user_to_db
 
 # Contoh di dalam handler Telegram
 await save_user_to_db(
@@ -106,6 +106,6 @@ Fungsi ini bisa digunakan di:
 * Handler `/start`
 * Handler admin (cek user, VIP, dll)
 * Fitur referral atau laporan
-* Proyek bot lain (dengan `core_bot` sebagai dependensi)
+* Proyek bot lain (dengan `telecore` sebagai dependensi)
 
 

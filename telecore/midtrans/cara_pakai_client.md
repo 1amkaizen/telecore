@@ -3,8 +3,8 @@
 ## 🔧 Inisialisasi
 
 ```python
-from core_bot.config import MIDTRANS_SERVER_KEY
-from core_bot.midtrans.client import MidtransClient
+from telecore.config import MIDTRANS_SERVER_KEY
+from telecore.midtrans.client import MidtransClient
 
 midtrans = MidtransClient(server_key=MIDTRANS_SERVER_KEY)
 ```
@@ -115,7 +115,7 @@ MIDTRANS_IS_SANDBOX=true
 ## 📂 Struktur Terkait
 
 ```
-core_bot/
+telecore/
 ├── config.py                # Env config loader
 └── midtrans/
     └── client.py           # MidtransClient class

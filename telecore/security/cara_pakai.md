@@ -1,4 +1,4 @@
-# 📘 Dokumentasi: `core_bot.security.admin`
+# 📘 Dokumentasi: `telecore.security.admin`
 
 Modul ini menyediakan fungsi untuk:
 
@@ -10,7 +10,7 @@ Modul ini menyediakan fungsi untuk:
 ## 📂 Lokasi File
 
 ```
-core_bot/
+telecore/
 └── security/
     └── admin.py
 ```
@@ -19,7 +19,7 @@ core_bot/
 
 ## 🧩 Dependensi
 
-* `core_bot.config.ADMIN_ID` harus tersedia, berupa string ID admin yang dipisahkan koma (`,`), misalnya:
+* `telecore.config.ADMIN_ID` harus tersedia, berupa string ID admin yang dipisahkan koma (`,`), misalnya:
 
 ```env
 ADMIN_ID=12345678,98765432
@@ -31,7 +31,7 @@ ADMIN_ID=12345678,98765432
 
 ### 🔐 `get_admin_ids() -> list[int]`
 
-Mengambil dan memvalidasi daftar admin dari `.env` (melalui `core_bot.config.ADMIN_ID`).
+Mengambil dan memvalidasi daftar admin dari `.env` (melalui `telecore.config.ADMIN_ID`).
 
 #### Detail:
 
@@ -42,7 +42,7 @@ Mengambil dan memvalidasi daftar admin dari `.env` (melalui `core_bot.config.ADM
 #### Contoh:
 
 ```python
-from core_bot.security.admin import get_admin_ids
+from telecore.security.admin import get_admin_ids
 
 admin_ids = get_admin_ids()
 print(admin_ids)  # Output: [12345678, 98765432]
@@ -57,7 +57,7 @@ Cek apakah user dengan `user_id` tertentu termasuk dalam daftar admin.
 #### Contoh:
 
 ```python
-from core_bot.security.admin import is_admin
+from telecore.security.admin import is_admin
 
 if is_admin(update.effective_user.id):
     await update.message.reply_text("Kamu admin.")
@@ -74,7 +74,7 @@ else:
 ```python
 from telegram import Update
 from telegram.ext import ContextTypes
-from core_bot.security.admin import is_admin
+from telecore.security.admin import is_admin
 
 async def admin_only_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id

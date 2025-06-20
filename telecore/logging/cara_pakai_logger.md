@@ -1,4 +1,4 @@
-# 📘 Dokumentasi: `core_bot.logging.logger`
+# 📘 Dokumentasi: `telecore.logging.logger`
 
 Modul ini menyediakan logger siap pakai dengan **warna di terminal (colorlog)** untuk setiap modul kamu.
 Logger ini cocok untuk debugging, monitoring event Telegram, API, Supabase, dan sebagainya.
@@ -18,7 +18,7 @@ Logger ini cocok untuk debugging, monitoring event Telegram, API, Supabase, dan 
 ## 📂 Lokasi File
 
 ```
-core_bot/
+telecore/
 └── logging/
     └── logger.py
 ```
@@ -43,9 +43,9 @@ Membuat logger modular berwarna untuk file tertentu.
 ### 1. Import `get_logger` di file Python-mu:
 
 ```python
-from core_bot.logging.logger import get_logger
+from telecore.logging.logger import get_logger
 
-logger = get_logger("core_bot.supabase.save_user")
+logger = get_logger("telecore.supabase.save_user")
 ```
 
 ### 2. Gunakan seperti biasa:
@@ -61,9 +61,9 @@ logger.error("Gagal memuat data dari Supabase.")
 ## 🎨 Output di Terminal
 
 ```bash
-2025-06-20 09:00:00 [INFO] core_bot.supabase.save_user: User berhasil disimpan.
-2025-06-20 09:00:01 [WARNING] core_bot.supabase.save_user: Token hampir kadaluarsa.
-2025-06-20 09:00:02 [ERROR] core_bot.supabase.save_user: Gagal memuat data dari Supabase.
+2025-06-20 09:00:00 [INFO] telecore.supabase.save_user: User berhasil disimpan.
+2025-06-20 09:00:01 [WARNING] telecore.supabase.save_user: Token hampir kadaluarsa.
+2025-06-20 09:00:02 [ERROR] telecore.supabase.save_user: Gagal memuat data dari Supabase.
 ```
 
 > Warna tergantung level log: INFO = hijau, WARNING = kuning, ERROR = merah
@@ -103,7 +103,7 @@ logger.error("Gagal memuat data dari Supabase.")
 ```python
 # handlers/users/start.py
 
-from core_bot.logging.logger import get_logger
+from telecore.logging.logger import get_logger
 logger = get_logger("handlers.users.start")
 
 async def start(update, context):

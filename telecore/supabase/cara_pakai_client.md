@@ -8,7 +8,7 @@ Dirancang agar **ringan, fleksibel, dan cocok untuk proyek bot Telegram berbasis
 ## 📂 Lokasi File
 
 ```
-core_bot/
+telecore/
 └── supabase/
     └── client.py
 ```
@@ -141,7 +141,7 @@ except Exception as e:
 ## 🧪 Contoh Implementasi
 
 ```python
-from core_bot.supabase.client import SupabaseClient
+from telecore.supabase.client import SupabaseClient
 
 client = SupabaseClient()
 

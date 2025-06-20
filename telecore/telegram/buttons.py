@@ -1,4 +1,4 @@
-# core_bot/telegram/buttons.py
+# telecore/telegram/buttons.py
 
 from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 

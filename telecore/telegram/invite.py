@@ -1,9 +1,9 @@
-# core_bot/telegram/invite.py
+# telecore/telegram/invite.py
 
 import os
 import logging
 from telegram import Bot
-from core_bot.config import GROUP_VIP_ID
+from telecore.config import GROUP_VIP_ID
 
 logger = logging.getLogger(__name__)
 

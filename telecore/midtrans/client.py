@@ -1,11 +1,11 @@
-# core_bot/midtrans/client.py
+# telecore/midtrans/client.py
 
 import httpx
 import logging
 import uuid
 from typing import Optional
 
-from core_bot.config import IS_MIDTRANS_SANDBOX
+from telecore.config import IS_MIDTRANS_SANDBOX
 
 self.api_base = "https://app.sandbox.midtrans.com" if IS_MIDTRANS_SANDBOX else "https://app.midtrans.com"
 

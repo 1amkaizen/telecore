@@ -1,4 +1,4 @@
-# 📘 Dokumentasi: `core_bot.telegram.buttons`
+# 📘 Dokumentasi: `telecore.telegram.buttons`
 
 Modul ini menyediakan berbagai **template tombol (`InlineKeyboardMarkup`)** siap pakai untuk bot Telegram berbasis `python-telegram-bot`.
 
@@ -9,7 +9,7 @@ Dirancang agar modular, fleksibel, dan bisa digunakan ulang di berbagai proyek b
 ## 📂 Lokasi File
 
 ```
-core_bot/
+telecore/
 └── telegram/
     └── buttons.py
 ```
@@ -145,7 +145,7 @@ Cancel
 ## 🎯 Contoh Penggunaan di Handler
 
 ```python
-from core_bot.telegram.buttons import confirm_cancel_buttons
+from telecore.telegram.buttons import confirm_cancel_buttons
 
 await update.message.reply_text(
     "Apakah kamu yakin ingin melanjutkan?",

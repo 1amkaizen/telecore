@@ -3,7 +3,7 @@
 ### 📂 Lokasi File
 
 ```
-core_bot/
+telecore/
 └── telegram/
     └── generate_group.py
 ```
@@ -56,7 +56,7 @@ GRUP_4_LINK=https://t.me/signal
 
 ## 🧠 Integrasi di `config.py`
 
-File `core_bot/config.py` akan mengatur parsing ENV ini:
+File `telecore/config.py` akan mengatur parsing ENV ini:
 
 ```python
 GROUP_COUNT = int(os.getenv("GRUP_COUNT", 6))
@@ -75,9 +75,9 @@ for i in range(1, GROUP_COUNT + 1):
 ## 🔧 Fungsi Utama
 
 ```python
-# core_bot/telegram/generate_group.py
+# telecore/telegram/generate_group.py
 
-from core_bot import config
+from telecore import config
 
 def generate_grup_markdown() -> str:
     grup_md_list = [f"[{g['nama']}]({g['link']})" for g in config.GRUP_LINKS]
@@ -97,7 +97,7 @@ def generate_grup_markdown() -> str:
 ### Di handler bot (`start.py` atau lainnya):
 
 ```python
-from core_bot.telegram.generate_group import generate_grup_markdown
+from telecore.telegram.generate_group import generate_grup_markdown
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     grup_links_md = generate_grup_markdown()
@@ -161,6 +161,6 @@ Modul ini telah dirancang agar:
 Kalau kamu setuju, ini bisa disimpan sebagai file dokumentasi:
 
 ```
-core_bot/docs/telegram_group.md
+telecore/docs/telegram_group.md
 ```
 

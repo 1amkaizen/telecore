@@ -1,4 +1,4 @@
-# 📘 Dokumentasi: `core_bot.telegram.menus`
+# 📘 Dokumentasi: `telecore.telegram.menus`
 
 Modul ini menyediakan fungsi fleksibel `make_menu()` untuk membuat **inline keyboard Telegram** dalam bentuk grid sesuai kebutuhan.
 
@@ -7,7 +7,7 @@ Modul ini menyediakan fungsi fleksibel `make_menu()` untuk membuat **inline keyb
 ## 📂 Lokasi File
 
 ```
-core_bot/
+telecore/
 └── telegram/
     └── menus.py
 ```
@@ -58,7 +58,7 @@ Membuat inline keyboard dengan bentuk bebas: 1 tombol per baris, 2 kolom, 3 kolo
 ### ✅ 1. Menu Sederhana 1 kolom
 
 ```python
-from core_bot.telegram.menus import make_menu
+from telecore.telegram.menus import make_menu
 
 menu = make_menu([
     [("🔍 Cek Status", "status")],
@@ -96,7 +96,7 @@ await update.callback_query.edit_message_text("Pilih materi:", reply_markup=menu
 
 ```python
 from telegram.ext import CallbackQueryHandler
-from core_bot.telegram.menus import make_menu
+from telecore.telegram.menus import make_menu
 
 async def menu_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     menu = make_menu([

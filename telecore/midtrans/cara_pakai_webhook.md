@@ -35,9 +35,9 @@ async def handle_midtrans_webhook(
 
 ```python
 from fastapi import APIRouter, Request
-from core_bot.midtrans.webhook import handle_midtrans_webhook
-from core_bot.supabase.client import SupabaseClient
-from core_bot.config import SUPABASE_URL, SUPABASE_KEY
+from telecore.midtrans.webhook import handle_midtrans_webhook
+from telecore.supabase.client import SupabaseClient
+from telecore.config import SUPABASE_URL, SUPABASE_KEY
 
 router = APIRouter()
 supabase = SupabaseClient(SUPABASE_URL, SUPABASE_KEY)
@@ -148,7 +148,7 @@ Jadi fleksibel — kamu kontrol penuh dari project klien/template.
 | --------------------------------------- | ----------------------- | --------------------------------------- |
 | Webhook handler subscription            | **Project klien**       | Tambah fungsi `handle_subscription()`   |
 | Logika expired/langganan (minggu/bulan) | **Project klien**       | Gunakan data dari transaksi             |
-| Fungsi umum Midtrans                    | **Sudah di `core_bot`** | Tidak perlu diubah                      |
+| Fungsi umum Midtrans                    | **Sudah di `telecore`** | Tidak perlu diubah                      |
 | Core perlu diubah?                      | ❌ Tidak                 | Kamu hanya pakai fungsi generiknya saja |
 
 ---

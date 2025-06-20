@@ -1,11 +1,11 @@
-# core_bot/supabase/save_user.py
+# telecore/supabase/save_user.py
 
 import logging
-from core_bot.supabase.client import SupabaseClient
+from telecore.supabase.client import SupabaseClient
 
-from core_bot.logging.logger import get_logger
+from telecore.logging.logger import get_logger
 
-logger = get_logger("core_bot.supabase.save_user")
+logger = get_logger("telecore.supabase.save_user")
 
 supabase_client = SupabaseClient()
 

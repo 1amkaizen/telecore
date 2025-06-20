@@ -1,8 +1,8 @@
-# core_bot/midtrans/webhook.py
+# telecore/midtrans/webhook.py
 
 from fastapi import Request
-from core_bot.midtrans.client import MidtransClient
-from core_bot.config import MIDTRANS_SERVER_KEY
+from telecore.midtrans.client import MidtransClient
+from telecore.config import MIDTRANS_SERVER_KEY
 import logging
 
 logger = logging.getLogger(__name__)

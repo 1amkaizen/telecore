@@ -1,4 +1,4 @@
-# 📘 Dokumentasi: `core_bot.telegram.invite`
+# 📘 Dokumentasi: `telecore.telegram.invite`
 
 Modul ini digunakan untuk mengundang user Telegram ke **grup VIP** menggunakan metode `invite_chat_member`.
 Nilai ID grup diambil secara dinamis dari environment variable `GROUP_VIP_ID`, sehingga **fleksibel dan reusable untuk banyak proyek.**
@@ -8,7 +8,7 @@ Nilai ID grup diambil secara dinamis dari environment variable `GROUP_VIP_ID`, s
 ## 📂 Lokasi File
 
 ```
-core_bot/
+telecore/
 └── telegram/
     └── invite.py
 ```
@@ -59,7 +59,7 @@ Mengundang user ke grup Telegram berdasarkan ID yang sudah dikonfigurasi.
 ### ✅ Contoh di handler VIP setelah pembayaran:
 
 ```python
-from core_bot.telegram.invite import invite_user_to_group
+from telecore.telegram.invite import invite_user_to_group
 
 # Misalnya setelah pembayaran berhasil
 await invite_user_to_group(bot=context.bot, user_id=update.effective_user.id)

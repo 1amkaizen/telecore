@@ -1,7 +1,7 @@
-# core_bot/security/admin.py
+# telecore/security/admin.py
 
 import logging
-from core_bot.config import ADMIN_ID  # Ambil dari config.py
+from telecore.config import ADMIN_ID  # Ambil dari config.py
 
 logger = logging.getLogger(__name__)
 

@@ -1,4 +1,4 @@
-# core_bot/telegram/menus.py
+# telecore/telegram/menus.py
 
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from typing import List, Tuple

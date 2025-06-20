@@ -1,7 +1,7 @@
-# core_bot/telegram/generate_group.py
+# telecore/telegram/generate_group.py
 
 import os
-from core_bot import config  
+from telecore import config  
 
 
 

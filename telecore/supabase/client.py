@@ -1,14 +1,14 @@
-# core_bot/supabase/client.py
+# telecore/supabase/client.py
 
 import httpx
 import logging
 from datetime import datetime
 from supabase import create_client, Client
-from core_bot.config import SUPABASE_URL, SUPABASE_KEY  
+from telecore.config import SUPABASE_URL, SUPABASE_KEY  
 
-from core_bot.logging.logger import get_logger
+from telecore.logging.logger import get_logger
 
-logger = get_logger("core_bot.supabase.client")
+logger = get_logger("telecore.supabase.client")
 
 
 
