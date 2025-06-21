@@ -50,3 +50,8 @@ def multi_button(rows: list[list[tuple[str, str]]]):
     ]
     return InlineKeyboardMarkup(keyboard)
 
+def vip_menu_buttons():
+    return [
+        [InlineKeyboardButton("💳 Bayar Sekarang", callback_data="bayar_vip")],
+        [InlineKeyboardButton("🔙 Kembali ke Menu Utama", callback_data="back_to_main")]
+    ]

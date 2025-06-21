@@ -1,23 +1,26 @@
 # telecore/midtrans/client.py
 
+
 import httpx
 import logging
 import uuid
+import hashlib
 from typing import Optional
-
-from telecore.config import IS_MIDTRANS_SANDBOX
-
-self.api_base = "https://app.sandbox.midtrans.com" if IS_MIDTRANS_SANDBOX else "https://app.midtrans.com"
+from telegram import User
+from telecore.config import MIDTRANS_SERVER_KEY, MIDTRANS_IS_SANDBOX
 
 logger = logging.getLogger(__name__)
 
 
 class MidtransClient:
-    
+    def __init__(self):
+        self.server_key = MIDTRANS_SERVER_KEY
+        self.auth = (self.server_key, "")
+        self.api_base = "https://app.sandbox.midtrans.com" if MIDTRANS_IS_SANDBOX else "https://app.midtrans.com"
+
     async def create_qris_payment(self, order_id: str, amount: int, customer: dict) -> dict:
         url = f"{self.api_base}/snap/v1/transactions"
         headers = {"Content-Type": "application/json"}
-
         payload = {
             "transaction_details": {
                 "order_id": order_id,
@@ -40,7 +43,6 @@ class MidtransClient:
     async def create_va_payment(self, order_id: str, amount: int, bank: str, customer: dict) -> dict:
         url = f"{self.api_base}/v2/charge"
         headers = {"Content-Type": "application/json"}
-
         payload = {
             "payment_type": "bank_transfer",
             "transaction_details": {
@@ -62,11 +64,18 @@ class MidtransClient:
 
         return response.json()
 
-    def generate_order_id(self, prefix: str = "TX") -> str:
+    @staticmethod
+    def generate_order_id(prefix: str = "TX") -> str:
         return f"{prefix}-{uuid.uuid4().hex[:10].upper()}"
 
+    @staticmethod
+    def get_customer_from_user(user: User) -> dict:
+        return {
+            "first_name": user.full_name,
+            "email": f"{user.username or user.id}@example.com"
+        }
+
     def verify_signature_key(self, order_id: str, status_code: str, gross_amount: str, signature_key: str) -> bool:
-        import hashlib
         raw = f"{order_id}{status_code}{gross_amount}{self.server_key}"
         calculated = hashlib.sha512(raw.encode()).hexdigest()
         return calculated == signature_key

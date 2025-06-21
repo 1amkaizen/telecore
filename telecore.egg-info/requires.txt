@@ -1,0 +1,4 @@
+httpx
+python-dotenv
+python-telegram-bot
+supabase
