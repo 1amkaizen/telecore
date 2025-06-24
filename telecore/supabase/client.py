@@ -59,4 +59,14 @@ class SupabaseClient:
 
     async def upsert_custom_user(self, data: dict, table="Users"):
         return await self.upsert(table, data)
+    async def get_by_column(self, table: str, column: str, value):
+        try:
+            response = await self.client.table(table).select("*").eq(column, value).execute()
+            data = response.data
+            if not data:
+                return None
+            return data
+        except Exception as e:
+            logger.error(f"❌ Gagal get_by_column dari {table}: {e}")
+            return None
 
