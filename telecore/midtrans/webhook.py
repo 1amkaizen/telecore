@@ -6,7 +6,8 @@ from telecore.config import MIDTRANS_SERVER_KEY
 import logging
 
 logger = logging.getLogger(__name__)
-midtrans = MidtransClient(server_key=MIDTRANS_SERVER_KEY)
+#midtrans = MidtransClient(server_key=MIDTRANS_SERVER_KEY)
+midtrans = MidtransClient()
 
 
 async def handle_midtrans_webhook(
