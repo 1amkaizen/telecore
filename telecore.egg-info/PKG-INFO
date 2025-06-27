@@ -3,13 +3,13 @@ Name: telecore
 Version: 0.2
 Summary: Core logic untuk bot Telegram (Midtrans, Supabase, dll)
 Home-page: https://github.com/1amkaizen/telecore
-Author: Zaenal Arifin
+Author: Zaenal Arifinn
 Author-email: 1amkaiz3n@gmail.com
-Requires-Dist: httpx==0.23.3
+Requires-Dist: httpx==0.28.1
 Requires-Dist: python-dotenv==1.0.0
-Requires-Dist: requests>=2.30.0
-Requires-Dist: supabase==1.0.3
-Requires-Dist: postgrest-py==0.10.6
+Requires-Dist: python-telegram-bot==22.1
+Requires-Dist: requests==2.32.4
+Requires-Dist: supabase==2.15.3
 Dynamic: author
 Dynamic: author-email
 Dynamic: home-page

@@ -4,16 +4,16 @@ setup(
     name="telecore",
     version="0.2",
     description="Core logic untuk bot Telegram (Midtrans, Supabase, dll)",
-    author="Zaenal Arifin",
+    author="Zaenal Arifinn",
     author_email="1amkaiz3n@gmail.com",
     url="https://github.com/1amkaizen/telecore",
     packages=find_packages(),
     install_requires=[
-        "httpx==0.23.3",  # Versi aman untuk postgrest
+        "httpx==0.28.1",  # Sesuai project lama
         "python-dotenv==1.0.0",
-        "requests>=2.30.0",
-        "supabase==1.0.3",  # ↓ downgrade agar httpx compatible
-        "postgrest-py==0.10.6",
-    ]
+        "python-telegram-bot==22.1",
+        "requests==2.32.4",
+        "supabase==2.15.3",  # Supabase async
+    ],
 )
 

@@ -1,12 +1,35 @@
 import os
+import logging
+from dotenv import load_dotenv
+
+logger = logging.getLogger(__name__)
+
+# Muat .env otomatis dari root project (naik max 3 tingkat)
+def try_load_dotenv_from_project_root():
+    import inspect
+    frame = inspect.stack()[-1]
+    caller_file = os.path.abspath(frame.filename)
+    root_dir = os.path.dirname(caller_file)
+
+    for _ in range(3):
+        env_path = os.path.join(root_dir, ".env")
+        if os.path.isfile(env_path):
+            load_dotenv(dotenv_path=env_path)
+            logger.info(f"✅ Loaded .env from: {env_path}")
+            break
+        root_dir = os.path.dirname(root_dir)
+
+try_load_dotenv_from_project_root()
+
 
 def require_env(var_name: str, cast=str, allow_empty=False):
     raw = os.getenv(var_name)
     if raw is None:
-        raise ValueError(f"Environment variable '{var_name}' is required but not set.")
-
+        logger.warning(f"⚠️ Environment variable '{var_name}' is not set.")
+        return None
     if not allow_empty and raw.strip() == "":
-        raise ValueError(f"Environment variable '{var_name}' cannot be empty.")
+        logger.warning(f"⚠️ Environment variable '{var_name}' is empty.")
+        return None
 
     try:
         if cast == bool:
@@ -17,8 +40,8 @@ def require_env(var_name: str, cast=str, allow_empty=False):
             return int(raw)
         return cast(raw)
     except Exception as e:
-        raise ValueError(f"Environment variable '{var_name}' could not be cast to {cast.__name__}: {e}")
-
+        logger.error(f"❌ Failed to cast env '{var_name}' to {cast.__name__}: {e}")
+        return None
 
 # Config utama
 BOT_TOKEN = require_env("BOT_TOKEN")
