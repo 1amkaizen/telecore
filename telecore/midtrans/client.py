@@ -79,4 +79,27 @@ class MidtransClient:
         raw = f"{order_id}{status_code}{gross_amount}{self.server_key}"
         calculated = hashlib.sha512(raw.encode()).hexdigest()
         return calculated == signature_key
+    async def create_snap_payment(
+        self, order_id: str, amount: int, customer: dict, enabled_payments: Optional[list] = None
+    ) -> dict:
+        url = f"{self.api_base}/snap/v1/transactions"
+        headers = {"Content-Type": "application/json"}
+        payload = {
+            "transaction_details": {
+                "order_id": order_id,
+                "gross_amount": amount
+            },
+            "customer_details": customer,
+        }
+        if enabled_payments:
+            payload["enabled_payments"] = enabled_payments
+
+        async with httpx.AsyncClient() as client:
+            response = await client.post(url, auth=self.auth, headers=headers, json=payload)
+
+        if response.status_code != 201:
+            logger.error(f"Midtrans Snap error: {response.text}")
+            raise Exception("Gagal membuat pembayaran Snap")
+
+        return response.json()
 

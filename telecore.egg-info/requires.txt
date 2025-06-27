@@ -1,4 +1,5 @@
-httpx
-python-dotenv
-python-telegram-bot
-supabase
+httpx==0.23.3
+python-dotenv==1.0.0
+requests>=2.30.0
+supabase==1.0.3
+postgrest-py==0.10.6
