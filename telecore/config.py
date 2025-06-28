@@ -60,6 +60,7 @@ FAQ_LINK = require_env("FAQ_LINK")
 GROUP_VIP_ID = require_env("GROUP_VIP_ID", cast=int)
 GROUP_UMUM_ID = require_env("GROUP_UMUM_ID", cast=int)
 
+DOWNLOAD_BASE_URL = require_env("DOWNLOAD_BASE_URL" )
 
 # Grup Telegram (Fleksibel & Validated)
 GROUP_COUNT = int(os.getenv("GRUP_COUNT", 6))

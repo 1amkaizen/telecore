@@ -80,8 +80,7 @@ class MidtransClient:
         calculated = hashlib.sha512(raw.encode()).hexdigest()
         return calculated == signature_key
     async def create_snap_payment(
-        self, order_id: str, amount: int, customer: dict, enabled_payments: Optional[list] = None
-    ) -> dict:
+        self, order_id: str, amount: int, customer: dict, enabled_payments: Optional[list] = None) -> dict:
         url = f"{self.api_base}/snap/v1/transactions"
         headers = {"Content-Type": "application/json"}
         payload = {
@@ -101,5 +100,10 @@ class MidtransClient:
             logger.error(f"Midtrans Snap error: {response.text}")
             raise Exception("Gagal membuat pembayaran Snap")
 
-        return response.json()
+        data = response.json()
+        return {
+            "redirect_url": data.get("redirect_url"),
+            "token": data.get("token"),
+            "midtrans_response": data  # ← tambahan ini
+        }
 

@@ -4,7 +4,7 @@ setup(
     name="telecore",
     version="0.2",
     description="Core logic untuk bot Telegram (Midtrans, Supabase, dll)",
-    author="Zaenal Arifinn",
+    author="Zaenal Arifin",
     author_email="1amkaiz3n@gmail.com",
     url="https://github.com/1amkaizen/telecore",
     packages=find_packages(),
