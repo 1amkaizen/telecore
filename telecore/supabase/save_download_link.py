@@ -17,7 +17,9 @@ def save_download_link(user_id: int, ebook_key: str, base_url: str = None):
         base_url = DOWNLOAD_BASE_URL
 
     # Pastikan base_url tidak diakhiri slash ganda
-    download_url = base_url.rstrip("/") + f"/{token}"
+    #download_url = base_url.rstrip("/") + f"/{token}"
+    download_url = base_url.rstrip("/") + f"/download/{token}"
+
     now = datetime.utcnow().isoformat()
 
     data = {
