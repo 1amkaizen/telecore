@@ -9,7 +9,6 @@ setup(
     url="https://github.com/1amkaizen/telecore",
     packages=find_packages(),
     install_requires=[
-        "httpx==0.28.1",  # Sesuai project lama
         "python-dotenv==1.0.0",
         "python-telegram-bot==22.1",
         "requests==2.32.4",
